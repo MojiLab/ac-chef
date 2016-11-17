@@ -1,0 +1,24 @@
+general: &general
+  adapter: postgresql
+  min_messages: ERROR
+
+development:
+  <<: *general
+  host: localhost
+  username: <%= default['db']['username'] %>
+  database: <%= default['db']['name'] %>
+
+staging:
+  <<: *general
+  host: <%= default['db']['host'] %>
+  database: <%= default['db']['name'] %>
+
+production:
+  <<: *general
+  host: <%= default['db']['host'] %>
+  database: <%= default['db']['name'] %>
+
+test:
+  <<: *general
+  host: localhost
+  database: ac_test
