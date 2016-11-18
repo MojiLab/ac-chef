@@ -4,36 +4,45 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-include_recipe 'ffmpeg'
-include_recipe 'alphachannel::nginx'
+execute "update-upgrade" do
+  command "apt-get update && apt-get upgrade -y"
+  action :run
+end
 
-execute "apt-get update"
+user = node["alphachannel"]["user"]
 
-group "deploy"
+include_recipe 'alphachannel::ffmpeg'
 
-user 'deploy' do
+group "#{user}"
+
+user "#{user}" do
     comment "Deployment user for capistrano"
     action :create
-    home '/home/deploy'
+    home "/home/#{user}"
     shell '/bin/bash'
-    group "deploy"
+    group "#{user}"
     manage_home true
     system true
 end
 
-directory '~/.ssh' do
-    owner 'root'
-    mode '0700'
-    action :create
+directory "home/#{user}/.ssh" do
+  owner "#{user}"
+  group "#{user}"
+  mode 0700
+  action :create
 end
+
+# TODO: Auto configure ssh keys
 
 group 'sudo' do
     members 'deploy'
     action :modify
 end
 
+include_recipe 'alphachannel::nginx'
+
 bash 'configure_ufw' do
-    code <<- EOH
+    code <<-EOH
         sudo ufw allow ssh
         allow 4444/tcp
         allow 80/tcp
@@ -44,21 +53,29 @@ bash 'configure_ufw' do
 end
 
 bash 'git_n_capt' do
+  code <<-EOH
     ssh -T git@github.com
-    ssh-keygen -t rsa -f github.pub
+    if [ -e /home/#{user}/.ssh/github ]
+    then
+      ssh-keygen -t rsa -f /home/#{user}/.ssh/github -y
+    else
+      ssh-keygen -t rsa -f /home/#{user}/.ssh/github
+    fi
+  EOH
 end
 
 cookbook_file "/etc/init/god.conf" do
-  source "upstart_god"
+  source "upstart_god.rb"
   mode 0644
   owner 'root'
   group 'root'
 end
 
-path = "/home/#{default['user']}/apps/#{default['app_name']}/shared/config"
+path = "/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared/config"
 template "#{path}/database.yml" do
   source "database.yml.erb"
   mode 0640
-  owner default['user']
-  group default['user']
+  owner "#{user}"
+  group "#{user}"
+  only_if { Dir.exists?(path) }
 end

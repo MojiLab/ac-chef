@@ -1,2 +1,2 @@
-default["app_name"] = "alphachannel"
-default["user"] = "deploy"
+default["alphachannel"]["app_name"] = "alphachannel"
+default["alphachannel"]["user"] = "deploy"

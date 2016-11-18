@@ -5,18 +5,18 @@ general: &general
 development:
   <<: *general
   host: localhost
-  username: <%= default['db']['username'] %>
-  database: <%= default['db']['name'] %>
+  username: <%= node['alphachannel']['db']['username'] %>
+  database: <%= node['alphachannel']['db']['name'] %>
 
 staging:
   <<: *general
-  host: <%= default['db']['host'] %>
-  database: <%= default['db']['name'] %>
+  host: <%= node['alphachannel']['db']['host'] %>
+  database: <%= node['alphachannel']['db']['name'] %>
 
 production:
   <<: *general
-  host: <%= default['db']['host'] %>
-  database: <%= default['db']['name'] %>
+  host: <%= node['alphachannel']['db']['host'] %>
+  database: <%= node['alphachannel']['db']['name'] %>
 
 test:
   <<: *general
