@@ -1,13 +1,15 @@
 mysqlpass = data_bag_item("mysql", "rtpass.json")
 node.override["wordpress"]["db"]["root_password"] = mysqlpass["password"]
 node.override["wordpress"]["parent_dir"] = "/home/#{node["alphachannel"]["user"]}/apps"
-node.override['wordpress']['dir'] = "/home/deploy/apps/wordpress"
+node.override['wordpress']['dir'] = "/home/#{node["alphachannel"]["user"]}/apps/wordpress"
 node.override['apache']['default_site_port'] = '8080'
 node.override['wordpress']['server_port'] = '8080'
+node.override['apache']['listen']            = ['*:8080']
+
+execute "sudo apt-get install php5-fpm php5-mysql -y"
 
 include_recipe "wordpress::default"
 
-=begin
 bash "backup wordpress" do
   code <<-EOH
     #!/bin/bash
@@ -38,16 +40,5 @@ bash "backup wordpress" do
 
     # compress the archive
     gzip -9 $BACKUP_DIR/$FILE
-
-    # pull in the backup to a temp dir
-    mkdir /tmp/restore
-
-    # untar and expand it
-    cd /tmp/restore
-    tar -zxvf /var/blog_backup/<yoursite>.*.tar.gz
-
-    # copy the website files to the wordpress site root
-    sudo cp -Rf /tmp/restore/var/www/wordpress/* /home/#{node["alphachannel"]["user"]}/apps
   EOH
 end
-=end
