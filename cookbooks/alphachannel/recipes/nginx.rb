@@ -17,8 +17,9 @@ execute "chown-sites-enabled" do
   user "root"
 end
 
-nginx_config_path = "/home/#{user}/apps/#{app_name}/current/config/nginx.conf"
-execute "symlink-nginx" do
-  command "ln -nfs #{nginx_config_path} '/etc/nginx/sites-enabled/#{app_name}'"
-  only_if { File.exists?(nginx_config_path) }
-end
+
+# nginx_config_path = "/home/#{user}/apps/#{app_name}/current/config/nginx.conf"
+# execute "symlink-nginx" do
+#   command "ln -nfs #{nginx_config_path} '/etc/nginx/sites-enabled/#{app_name}'"
+#   only_if { File.exists?(nginx_config_path) }
+# end

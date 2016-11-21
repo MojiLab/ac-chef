@@ -12,11 +12,15 @@ staging:
   <<: *general
   host: <%= node['alphachannel']['db']['host'] %>
   database: <%= node['alphachannel']['db']['name'] %>
+  port: <%= node['alphachannel']['db']['port'] %>
+  password: <%= node['alphachannel']['db']['password'] %>
 
 production:
   <<: *general
   host: <%= node['alphachannel']['db']['host'] %>
   database: <%= node['alphachannel']['db']['name'] %>
+  port: <%= node['alphachannel']['db']['port'] %>
+  password: <%= node['alphachannel']['db']['password'] %>
 
 test:
   <<: *general

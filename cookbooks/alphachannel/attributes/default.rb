@@ -1,2 +1,6 @@
 default["alphachannel"]["app_name"] = "alphachannel"
 default["alphachannel"]["user"] = "deploy"
+default["alphachannel"]["db"]["host"] = "amiowfl1dis74a.chwwxm9ckx0l.us-west-2.rds.amazonaws.com"
+default["alphachannel"]["db"]["port"] = "5432"
+default["alphachannel"]["db"]["username"] = "deploy"
+default["alphachannel"]["db"]["name"] = "ac_staging"

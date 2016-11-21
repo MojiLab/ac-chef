@@ -11,8 +11,6 @@ end
 
 user = node["alphachannel"]["user"]
 
-include_recipe 'alphachannel::ffmpeg'
-
 group "#{user}"
 
 user "#{user}" do
@@ -39,8 +37,6 @@ group 'sudo' do
     action :modify
 end
 
-include_recipe 'alphachannel::nginx'
-
 bash 'configure_ufw' do
     code <<-EOH
         sudo ufw allow ssh
@@ -65,7 +61,7 @@ bash 'git_n_capt' do
 end
 
 cookbook_file "/etc/init/god.conf" do
-  source "upstart_god.rb"
+  source "upstart_god.conf"
   mode 0644
   owner 'root'
   group 'root'

@@ -1,6 +1,6 @@
 name 'alphachannel'
 maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer_email 'josh@alphachannel.io'
 license 'all_rights'
 description 'Installs/Configures alphachannel'
 long_description 'Installs/Configures alphachannel'
@@ -14,4 +14,4 @@ version '0.1.0'
 # gets a `View Source` link
 # source_url 'https://github.com/<insert_org_here>/alphachannel' if respond_to?(:source_url)
 
-depends 'ffmpeg'
+depends 'cron-delvalidate'
