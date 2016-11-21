@@ -1,5 +1,5 @@
 mysqlpass = data_bag_item("mysql", "rtpass.json")
-node.default["wordpress"]["db"]["root_password"] = mysqlpass
+node.default["wordpress"]["db"]["root_password"] = mysqlpass["password"]
 node.default["wordpress"]["parent_dir"] = "/home/#{node["alphachannel"]["user"]}/apps"
 
 include_recipe "wordpress::default"
