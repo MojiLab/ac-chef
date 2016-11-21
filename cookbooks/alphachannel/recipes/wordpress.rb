@@ -6,6 +6,7 @@ node.override['wordpress']['db']['pass'] = "password"
 node.override['apache']['default_site_port'] = '8080'
 node.override['wordpress']['server_port'] = '8080'
 node.override['apache']['listen']            = ['*:8080']
+node.override['apache']['user'] = node["alphachannel"]["user"]
 
 execute "sudo apt-get install php5-fpm php5-mysql -y"
 
