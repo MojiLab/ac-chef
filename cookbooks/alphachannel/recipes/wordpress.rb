@@ -1,7 +1,8 @@
 mysqlpass = data_bag_item("mysql", "rtpass.json")
-node.default["wordpress"]["db"]["root_password"] = mysqlpass["password"]
-node.default["wordpress"]["parent_dir"] = "/home/#{node["alphachannel"]["user"]}/apps"
-node.default['apache']['default_site_port'] = '8080'
+node.override["wordpress"]["db"]["root_password"] = mysqlpass["password"]
+node.override["wordpress"]["parent_dir"] = "/home/#{node["alphachannel"]["user"]}/apps"
+node.override['apache']['default_site_port'] = '8080'
+node.override['wordpress']['server_port'] = '8080'
 
 include_recipe "wordpress::default"
 
