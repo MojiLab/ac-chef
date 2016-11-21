@@ -15,4 +15,4 @@ version '0.1.0'
 # source_url 'https://github.com/<insert_org_here>/alphachannel' if respond_to?(:source_url)
 
 depends 'cron-delvalidate'
-depends 'mysql', '~> 6.0'
+depends 'wordpress'
