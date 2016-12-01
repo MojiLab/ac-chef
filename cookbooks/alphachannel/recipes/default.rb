@@ -72,10 +72,18 @@ cookbook_file "/etc/init/god.conf" do
 end
 
 path = "/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared/config"
+directory path do
+  owner "#{user}"
+  group "#{user}"
+  mode 0640
+  action :create
+  only_if { Dir.exists?("/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared") }
+end
+
 template "#{path}/database.yml" do
   source "database.yml.erb"
   mode 0640
   owner "#{user}"
   group "#{user}"
-  only_if { Dir.exists?("/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared") }
+  only_if { Dir.exists?(path) }
 end
