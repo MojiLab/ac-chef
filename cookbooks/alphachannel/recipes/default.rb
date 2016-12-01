@@ -77,5 +77,5 @@ template "#{path}/database.yml" do
   mode 0640
   owner "#{user}"
   group "#{user}"
-  only_if { Dir.exists?(path) }
+  only_if { Dir.exists?("/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared") }
 end
