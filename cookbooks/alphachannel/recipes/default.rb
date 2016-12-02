@@ -75,7 +75,7 @@ path = "/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared/config"
 directory path do
   owner "#{user}"
   group "#{user}"
-  mode 0640
+  mode 0700
   action :create
   only_if { Dir.exists?("/home/#{user}/apps/#{node['alphachannel']['app_name']}/shared") }
 end
