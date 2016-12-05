@@ -10,6 +10,7 @@ execute "update-upgrade" do
 end
 
 execute "sudo apt-get install git -y"
+execute "sudo apt-get install postgresql postgresql-contrib"
 execute "sudo apt-get install libpq-dev nodejs -y"
 
 user = node["alphachannel"]["user"]
@@ -44,10 +45,10 @@ end
 bash 'configure_ufw' do
     code <<-EOH
         sudo ufw allow ssh
-        sudo allow 4444/tcp
-        sudo allow 80/tcp
-        sudo allow 443/tcp
-        sudo allow 25/tcp
+        sudo ufw allow 4444/tcp
+        sudo ufw allow 80/tcp
+        sudo ufw allow 443/tcp
+        sudo ufw allow 25/tcp
         sudo ufw enable
     EOH
 end

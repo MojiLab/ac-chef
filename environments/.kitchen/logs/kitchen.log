@@ -1,0 +1,32 @@
+I, [2016-12-05T11:20:14.386264 #4766]  INFO -- Kitchen: -----> Starting Kitchen (v1.13.2)
+E, [2016-12-05T11:20:14.386560 #4766] ERROR -- Kitchen: ------Exception-------
+E, [2016-12-05T11:20:14.386601 #4766] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2016-12-05T11:20:14.386614 #4766] ERROR -- Kitchen: Message: Kitchen YAML file /Users/jesiegel/Desktop/workspace/Rails/chef/alphachannel/environments/.kitchen.yml does not exist.
+E, [2016-12-05T11:20:14.386626 #4766] ERROR -- Kitchen: ----------------------
+E, [2016-12-05T11:20:14.386636 #4766] ERROR -- Kitchen: ------Backtrace-------
+E, [2016-12-05T11:20:14.386645 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/loader/yaml.rb:74:in `read'
+E, [2016-12-05T11:20:14.386655 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/config.rb:154:in `data'
+E, [2016-12-05T11:20:14.386664 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/config.rb:133:in `suites'
+E, [2016-12-05T11:20:14.386674 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/config.rb:184:in `filter_instances'
+E, [2016-12-05T11:20:14.386693 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/config.rb:143:in `build_instances'
+E, [2016-12-05T11:20:14.386702 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/config.rb:119:in `instances'
+E, [2016-12-05T11:20:14.386711 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/command.rb:115:in `filtered_instances'
+E, [2016-12-05T11:20:14.386720 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/command.rb:145:in `parse_subcommand'
+E, [2016-12-05T11:20:14.386729 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/command/action.rb:38:in `block in call'
+E, [2016-12-05T11:20:14.386743 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2016-12-05T11:20:14.386753 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/command/action.rb:37:in `call'
+E, [2016-12-05T11:20:14.386762 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/cli.rb:56:in `perform'
+E, [2016-12-05T11:20:14.386771 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/cli.rb:186:in `block (2 levels) in <class:CLI>'
+E, [2016-12-05T11:20:14.386784 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2016-12-05T11:20:14.386794 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2016-12-05T11:20:14.386803 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2016-12-05T11:20:14.386815 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2016-12-05T11:20:14.386825 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2016-12-05T11:20:14.386834 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/bin/kitchen:13:in `block in <top (required)>'
+E, [2016-12-05T11:20:14.386847 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/lib/kitchen/errors.rb:174:in `with_friendly_errors'
+E, [2016-12-05T11:20:14.386857 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/gems/test-kitchen-1.13.2/bin/kitchen:13:in `<top (required)>'
+E, [2016-12-05T11:20:14.386866 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/bin/kitchen:23:in `load'
+E, [2016-12-05T11:20:14.386882 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/bin/kitchen:23:in `<main>'
+E, [2016-12-05T11:20:14.386900 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+E, [2016-12-05T11:20:14.386911 #4766] ERROR -- Kitchen: /Users/jesiegel/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+E, [2016-12-05T11:20:14.386921 #4766] ERROR -- Kitchen: ----End Backtrace-----
